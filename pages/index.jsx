@@ -1,21 +1,15 @@
-import { i18next } from "../next.config"
-
-export const getStaticProps = () => {
-  let config = require("../next.config")
-
-  if (typeof config === "function") config = config()
-
-  console.log(i18next)
+export const getStaticProps = async () => {
+  const { i18next } = await import("../next.config")
 
   return {
     props: {
-      config,
+      i18next
     }
   }
 }
 
-export const IndexPage = ({ config }) => (
-  <pre>{JSON.stringify(config, null, 2)}</pre>
+export const IndexPage = ({ i18next }) => (
+  <pre>{JSON.stringify(i18next, null, 2)}</pre>
 )
 
 export default IndexPage
