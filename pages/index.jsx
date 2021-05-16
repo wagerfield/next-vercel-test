@@ -1,20 +1,17 @@
 export const getStaticProps = () => {
-  const config = require("../next.config")
-  const result = typeof config === "function" ? config() : config
+  let config = require("../next.config")
 
-  console.log(result)
+  if (typeof config === "function") config = config()
 
   return {
     props: {
-      result,
+      config,
     }
   }
 }
 
-export const IndexPage = ({ result }) => (
-  <main>
-    <pre>{JSON.stringify(result, null, 2)}</pre>
-  </main>
+export const IndexPage = ({ config }) => (
+  <pre>{JSON.stringify(config, null, 2)}</pre>
 )
 
 export default IndexPage

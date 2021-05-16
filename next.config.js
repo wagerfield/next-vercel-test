@@ -1,5 +1,6 @@
 module.exports = {
   i18next: {
-    title: "Testing 123"
+    defaultNS: "common",
+    fallbackLng: "en"
   }
 }
