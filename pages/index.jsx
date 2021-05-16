@@ -6,7 +6,7 @@ export const getStaticProps = () => {
 
   return {
     props: {
-      title: i18next.title,
+      title: i18next?.title ?? "Undefined",
       config
     }
   }
