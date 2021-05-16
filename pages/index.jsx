@@ -1,21 +1,21 @@
 import { readFileSync } from "fs"
 
 export const getStaticProps = () => {
-  const { i18next } = require("../next.config")
-  const config = readFileSync("next.config.js", "utf-8")
+  const config = require("../next.config")
+  const file = readFileSync("next.config.js", "utf-8")
 
   return {
     props: {
-      title: i18next?.title ?? "Undefined",
-      config
+      config,
+      file
     }
   }
 }
 
-export const IndexPage = ({ title, config }) => (
+export const IndexPage = ({ config, file }) => (
   <main>
-    <h1>{title}</h1>
-    <pre>{config}</pre>
+    <pre>{JSON.stringify(config, null, 2)}</pre>
+    <pre>{file}</pre>
   </main>
 )
 
