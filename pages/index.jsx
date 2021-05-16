@@ -1,7 +1,11 @@
+import { i18next } from "../next.config"
+
 export const getStaticProps = () => {
   let config = require("../next.config")
 
   if (typeof config === "function") config = config()
+
+  console.log(i18next)
 
   return {
     props: {
