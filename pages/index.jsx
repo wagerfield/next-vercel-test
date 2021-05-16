@@ -13,7 +13,7 @@ export const getStaticProps = () => {
 
 export const IndexPage = ({ result }) => (
   <main>
-    <pre>{result}</pre>
+    <pre>{JSON.stringify(result, null, 2)}</pre>
   </main>
 )
 
