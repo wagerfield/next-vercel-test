@@ -6,7 +6,7 @@ export const getStaticProps = () => {
 
   return {
     props: {
-      config,
+      config: JSON.stringify(config, null, 2),
       file
     }
   }
@@ -14,7 +14,7 @@ export const getStaticProps = () => {
 
 export const IndexPage = ({ config, file }) => (
   <main>
-    <pre>{JSON.stringify(config, null, 2)}</pre>
+    <pre>{config}</pre>
     <pre>{file}</pre>
   </main>
 )
