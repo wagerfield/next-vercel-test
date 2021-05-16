@@ -1,9 +1,11 @@
 export const getStaticProps = async () => {
-  const { i18next } = await import("../next.config")
+  const config = await import("../next.config")
+  
+  console.log(config)
 
   return {
     props: {
-      i18next
+      i18next: {}
     }
   }
 }
