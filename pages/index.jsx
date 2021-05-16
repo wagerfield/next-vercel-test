@@ -1,5 +1,5 @@
-export const getStaticProps = async () => {
-  const config = await import("../next.config")
+export const getStaticProps = () => {
+  const config = require("../next.config")
   
   console.log(config)
 
