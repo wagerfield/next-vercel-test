@@ -1,23 +1,19 @@
-import { readFileSync } from "fs"
-
 export const getStaticProps = () => {
   const config = require("../next.config")
-  const file = readFileSync("next.config.js", "utf-8")
+  const result = typeof config === "function" ? config() : config
 
-  console.log(config)
+  console.log(result)
 
   return {
     props: {
-      config: JSON.stringify(config, null, 2),
-      file
+      result,
     }
   }
 }
 
-export const IndexPage = ({ config, file }) => (
+export const IndexPage = ({ result }) => (
   <main>
-    <pre>{config}</pre>
-    <pre>{file}</pre>
+    <pre>{result}</pre>
   </main>
 )
 
