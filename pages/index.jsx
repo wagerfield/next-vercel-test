@@ -4,6 +4,8 @@ export const getStaticProps = () => {
   const config = require("../next.config")
   const file = readFileSync("next.config.js", "utf-8")
 
+  console.log(config)
+
   return {
     props: {
       config: JSON.stringify(config, null, 2),
